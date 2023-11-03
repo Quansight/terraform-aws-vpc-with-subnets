@@ -6,7 +6,7 @@ module "vpc" {
   assign_generated_ipv6_cidr_block = false
   default_security_group_deny_all  = true
   name                             = var.vpc_name
-  dns_hostnames_enabled = true
+  dns_hostnames_enabled            = true
 
 }
 
@@ -14,11 +14,11 @@ module "subnets" {
   source  = "cloudposse/dynamic-subnets/aws"
   version = "2.4.1"
 
-  availability_zones   = var.availability_zones
-  vpc_id               = module.vpc.vpc_id
-  igw_id               = [module.vpc.igw_id]
-  ipv4_cidr_block      = [module.vpc.vpc_cidr_block]
-  nat_gateway_enabled  = true
+  availability_zones  = var.availability_zones
+  vpc_id              = module.vpc.vpc_id
+  igw_id              = [module.vpc.igw_id]
+  ipv4_cidr_block     = [module.vpc.vpc_cidr_block]
+  nat_gateway_enabled = true
 
 }
 
@@ -75,23 +75,23 @@ resource "aws_vpc_endpoint" "kms" {
   private_dns_enabled = true
 }
 resource "aws_security_group" "endpoint_security_group" {
-    name = "vpc_endpoint_sg"
-    vpc_id = module.vpc.vpc_id
+  name   = "vpc_endpoint_sg"
+  vpc_id = module.vpc.vpc_id
 }
 resource "aws_security_group_rule" "vpc_endpoint_access_ingress" {
-    from_port = 443
-    to_port = 443
-    protocol = "tcp"
-    type = "ingress"
-    self = true
-    security_group_id = aws_security_group.endpoint_security_group.id
+  from_port         = 443
+  to_port           = 443
+  protocol          = "tcp"
+  type              = "ingress"
+  self              = true
+  security_group_id = aws_security_group.endpoint_security_group.id
 }
 
 resource "aws_security_group_rule" "vpc_endpoint_access_egress" {
-    from_port = 443
-    to_port = 443
-    protocol = "tcp"
-    type = "egress"
-    self = true
-    security_group_id = aws_security_group.endpoint_security_group.id
+  from_port         = 443
+  to_port           = 443
+  protocol          = "tcp"
+  type              = "egress"
+  self              = true
+  security_group_id = aws_security_group.endpoint_security_group.id
 }

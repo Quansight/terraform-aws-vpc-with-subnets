@@ -5,7 +5,7 @@ output "availability_zones" {
 
 output "availability_zone_ids" {
   description = "List of Availability Zones IDs where subnets were created, when available"
-  value = module.subnets.availability_zone_ids
+  value       = module.subnets.availability_zone_ids
 }
 
 output "public_subnet_ids" {
@@ -173,12 +173,12 @@ output "vpc_default_route_table_id" {
 
 output "additional_cidr_blocks" {
   description = "A list of the additional IPv4 CIDR blocks associated with the VPC"
-  value = module.vpc.additional_cidr_blocks 
+  value       = module.vpc.additional_cidr_blocks
 }
 
 output "additional_cidr_blocks_to_association_ids" {
   description = "A map of the additional IPv4 CIDR blocks to VPC CIDR association IDs"
-  value = module.vpc.additional_cidr_blocks_to_association_ids 
+  value       = module.vpc.additional_cidr_blocks_to_association_ids
 }
 
 output "igw_id" {
