@@ -133,7 +133,7 @@ output "named_private_subnets_stats_map" {
 
 output "named_public_subnets_stats_map" {
   description = "Map of subnet names (specified in `subnets_per_az_names` variable) to lists of objects with each object having three items: AZ, public subnet ID, public route table ID"
-  value       = named_public_subnets_stats_map
+  value       = module.subnets.named_public_subnets_stats_map
 }
 
 output "vpc_id" {
