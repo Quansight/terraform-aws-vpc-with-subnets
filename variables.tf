@@ -13,7 +13,7 @@ variable "region" {
 variable "availability_zones" {
     type = list(string)
     description = "Availability Zones for the VPC"
-    default = [ "${var.region}a", "${var.region}b", "${var.region}c" ]
+    default = [ "us-east1a", "us-east1b", "us-east1c" ]
 }
 
 variable "vpc_name" {
