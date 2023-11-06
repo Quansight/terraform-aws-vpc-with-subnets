@@ -185,3 +185,9 @@ output "igw_id" {
   value       = module.vpc.igw_id
   description = "The ID of the Internet Gateway"
 }
+
+output "vpc_endpoint_sg_id" {
+  value = aws_security_group.endpoint_security_group.id
+  description = "ID of the security group that allows access to the vpc endpoints"
+  
+}
