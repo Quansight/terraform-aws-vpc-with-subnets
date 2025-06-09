@@ -1,3 +1,12 @@
+/**
+* # terraform-aws-vpc-with-subnets
+*
+* A terraform module to create a vpc with dynamic subnets
+* and VPC endpoints to allow for launching fargate tasks
+* from private subnets, logging, and using SSM Parameter
+* Store and KMS.
+*/
+
 module "vpc" {
   source  = "cloudposse/vpc/aws"
   version = "2.1.0"

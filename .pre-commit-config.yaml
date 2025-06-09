@@ -1,0 +1,17 @@
+repos:
+  - repo: local
+    hooks:
+      - id: make-docs
+        name: Run make docs
+        entry: make docs
+        language: system
+        always_run: true
+
+  - repo: local
+    hooks:
+      - id: auto-add
+        name: Auto-add files after formatting
+        entry: bash -c 'git add .'
+        language: system
+        always_run: true
+        pass_filenames: false
